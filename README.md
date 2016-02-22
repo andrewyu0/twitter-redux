@@ -34,6 +34,11 @@ Please list two areas of the assignment you'd like to **discuss further with you
 1. Best practices for architecting network requests, how to handle more complex scenarios
 2. Efficient, repeatable ways to set up view, delegate, controller ecosystem
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+![](twitter-walkthrough.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
