@@ -37,6 +37,7 @@ class User: NSObject {
 
     // Logout function
     func logout(){
+        
         User.currentUser = nil
         
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()

@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         // set navbar styling
         if let navigationBar = navigationController?.navigationBar {
             navigationBar.translucent  = false
-            navigationBar.barTintColor = UIColor.redColor()
             navigationBar.tintColor    = UIColor.whiteColor()
             navigationBar.titleTextAttributes = [
                 NSForegroundColorAttributeName : UIColor.whiteColor()

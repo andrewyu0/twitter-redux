@@ -31,21 +31,8 @@ class TwitterClient: BDBOAuth1SessionManager {
         GET("1.1/statuses/home_timeline.json", parameters : params, success : { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
         
             print("----- We have the home timeline (TwitterClient)")
-//            print ("==== RESPONSE")
-//            print(response)
-
             let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-//            print(tweets)
-//            for tweet in tweets {
-//                print("==== TWEET ==== ")
-//                print("text: \(tweet.text as String!)")
-//                print("created: \(tweet.createdAt)")
-//                print("user: \(tweet.author)")
-//                print("user: \(tweet.authorHandle)")
-//            }
-    
             completion(tweets: tweets, error:nil)
-//            print(tweets)
     
         },
         failure    : { (operation: NSURLSessionDataTask?, error: NSError?) -> Void in
@@ -55,7 +42,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     
     }
-    
+
+    func tweetMessageWithParams(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json", parameters: params, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            
+            completion(tweet: tweet, error: nil)
+            }) { (operation: NSURLSessionDataTask?, error:NSError!) -> Void in
+                completion(tweet: nil, error: error)
+        }
+    }
     
     
     func openURL(url: NSURL){
@@ -88,20 +85,6 @@ class TwitterClient: BDBOAuth1SessionManager {
                 }
             )
             
-//            // GET HOME TIMELINE (ALL TWEETS)
-//            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters : nil, success : { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
-//
-//                print("----- We have the home timeline")
-//                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-//                for tweet in tweets {
-//                    print("text: \(tweet.text as String!), created: \(tweet.createdAt)")
-//                }
-//                },
-//                failure    : { (operation: NSURLSessionDataTask?, error: NSError?) -> Void in
-//                    print("error getting timeline")
-//                    self.loginCompletion?(user: nil, error:error)
-//                }
-//            )
             
             }) { (error: NSError!) -> Void in
                 print("Failed to receive access token")

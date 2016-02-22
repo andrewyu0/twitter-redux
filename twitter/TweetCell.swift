@@ -33,6 +33,7 @@ class TweetCell: UITableViewCell {
                 authorLabel.text = user.name
                 authorHandleLabel.text = "@\(user.screenname!)"
                 tweetImageView.setImageWithURL(avatarUrl!)
+                tweetImageView.layer.cornerRadius = 5
             }
         }
     }

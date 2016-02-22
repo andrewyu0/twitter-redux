@@ -16,12 +16,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var refreshControlTableView: UIRefreshControl!
 
     @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var navigationBar: UINavigationBar!
-    
+
     @IBAction func signOut(sender: AnyObject) {
+        
         User.currentUser?.logout()
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,10 +80,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
-        var currentTweet = tweets?[indexPath.row]
+
         cell.tweet = tweets?[indexPath.row]
-        print("currentTweet")
-        print(currentTweet)
+
 
         
         return cell
