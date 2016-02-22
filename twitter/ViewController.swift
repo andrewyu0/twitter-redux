@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // set navbar styling
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.translucent  = false
+            navigationBar.barTintColor = UIColor.redColor()
+            navigationBar.tintColor    = UIColor.whiteColor()
+            navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : UIColor.whiteColor()
+            ]
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +34,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onLogin(sender: AnyObject) {
+
+        TwitterClient.sharedInstance.loginWithCompletion(){
+            (user: User?, error: NSError?) in
+            if user != nil {
+                // perform segue
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            }
+            else {
+                // handle login error
+            }
+        }
+        
+        
+    }
 
 }
 
