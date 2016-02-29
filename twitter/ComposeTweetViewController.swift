@@ -22,7 +22,6 @@ class ComposeTweetViewController: UIViewController {
     var currentUser = User.currentUser!
     weak var delegate: ComposeTweetControllerDelegate?
     
-    
     var isReplyTweet = false
     var tweetToReply: Tweet?
     var tweetCharCount: UIBarButtonItem?

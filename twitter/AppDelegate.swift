@@ -19,20 +19,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
-        // Check if user persisted, if found open login screen
+        // Override point for customization after application launch.
+        print("AppDelegate didFinishLaunchingWithOptions")
+        
+        
+
         if User.currentUser != nil {
-            // Go to logged in screen
-            print("Current user detected: \(User.currentUser!.name)")
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
-            window?.rootViewController = vc
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+            
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
         }
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        // Check if user persisted, if found open login screen
+//        
+//        if User.currentUser != nil {
+//            // Go to logged in screen
+//            print("Current user detected: \(User.currentUser!.name)")
+//            //            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
+//                        let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+////            let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+//            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+//
+//            // 2 way connection
+//            menuViewController.hamburgerViewController = hamburgerViewController
+//            hamburgerViewController.menuViewController = menuViewController
+//
+//
+//            // If there's a user already, go straight to hamburger
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as UIViewController
+//            window?.rootViewController = vc
+//
+//        }
+
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+
         
         return true
     }
+    
     
     func userDidLogout(){
         

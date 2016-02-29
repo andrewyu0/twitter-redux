@@ -8,7 +8,11 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+@objc protocol TweetsViewControllerDelegate {
+    optional func tweetsViewControllerDelegate(tweetsViewController: TweetsViewController, didUpdateProfileUser user: User)
+}
+
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetCellDelegate {
 
     @IBOutlet weak var navigationBar: UINavigationItem!
 
@@ -18,9 +22,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func signOut(sender: AnyObject) {
-        
+        print("signout invoked")
         User.currentUser?.logout()
+        dismissViewControllerAnimated(true, completion: nil)        
+
     }
+    
+    var delegate: TweetsViewControllerDelegate?
     
     
     override func viewDidLoad() {
@@ -36,8 +44,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 150
+        
 
         // Pull down to refresh
         refreshControlTableView = UIRefreshControl()
@@ -69,7 +76,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    
     // Table View Delegate and Data Source Methods
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,19 +84,24 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         return 0
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets?[indexPath.row]
         return cell
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func tweetCellDelegate(tweetCell: TweetCell, didTapReply tweet: Tweet) {
-        self.performSegueWithIdentifier("newTweetSegue", sender: tweetCell)
+    
+    func tweetCellDelegate(tweetCell: TweetCell, didTapAvatar tweet: Tweet) {
+        print("didTapAvatar invoked (TweetsViewController)")
+        let user = tweet.user
+        print("This is the user for the tweet:")
+        print(user)
+        delegate?.tweetsViewControllerDelegate?(self, didUpdateProfileUser: user!)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

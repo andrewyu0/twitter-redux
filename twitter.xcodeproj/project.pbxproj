@@ -17,8 +17,14 @@
 		EF2EC72D1C7A18D60067670D /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2EC72C1C7A18D60067670D /* TweetCell.swift */; };
 		EF2EC72F1C7AB8E70067670D /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2EC72E1C7AB8E70067670D /* ComposeTweetViewController.swift */; };
 		EF2EC7311C7AC7670067670D /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2EC7301C7AC7670067670D /* TweetViewController.swift */; };
+		EF3D38B31C80161A0090EBD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D38B21C80161A0090EBD7 /* ProfileViewController.swift */; };
+		EF6BE79D1C7E372F0095A358 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BE79C1C7E372F0095A358 /* HamburgerViewController.swift */; };
+		EF6BE7BD1C7FBF110095A358 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BE7BC1C7FBF110095A358 /* MenuViewController.swift */; };
+		EF6BE7BF1C7FC31C0095A358 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BE7BE1C7FC31C0095A358 /* BlueViewController.swift */; };
+		EF6BE7C31C7FC77A0095A358 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BE7C21C7FC77A0095A358 /* MenuCell.swift */; };
 		EFC67C3C1C767CAD0066383C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC67C3B1C767CAD0066383C /* User.swift */; };
 		EFC67C3E1C767CBA0066383C /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC67C3D1C767CBA0066383C /* Tweet.swift */; };
+		EFDCA1C41C83D62100BF0393 /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDCA1C31C83D62100BF0393 /* MentionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +42,14 @@
 		EF2EC72C1C7A18D60067670D /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		EF2EC72E1C7AB8E70067670D /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
 		EF2EC7301C7AC7670067670D /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		EF3D38B21C80161A0090EBD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EF6BE79C1C7E372F0095A358 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
+		EF6BE7BC1C7FBF110095A358 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		EF6BE7BE1C7FC31C0095A358 /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
+		EF6BE7C21C7FC77A0095A358 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		EFC67C3B1C767CAD0066383C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EFC67C3D1C767CBA0066383C /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		EFDCA1C31C83D62100BF0393 /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +116,15 @@
 		EF1DD60E1C7401BC00472D1E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF2EC7291C78DF9B0067670D /* TweetsViewController.swift */,
 				EF1DD5F81C73FF8600472D1E /* ViewController.swift */,
+				EF3D38B21C80161A0090EBD7 /* ProfileViewController.swift */,
+				EF2EC7291C78DF9B0067670D /* TweetsViewController.swift */,
+				EFDCA1C31C83D62100BF0393 /* MentionsViewController.swift */,
+				EF6BE79C1C7E372F0095A358 /* HamburgerViewController.swift */,
+				EF6BE7BC1C7FBF110095A358 /* MenuViewController.swift */,
 				EF2EC72E1C7AB8E70067670D /* ComposeTweetViewController.swift */,
 				EF2EC7301C7AC7670067670D /* TweetViewController.swift */,
+				EF6BE7BE1C7FC31C0095A358 /* BlueViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -116,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2EC72C1C7A18D60067670D /* TweetCell.swift */,
+				EF6BE7C21C7FC77A0095A358 /* MenuCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -260,14 +278,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6BE7C31C7FC77A0095A358 /* MenuCell.swift in Sources */,
 				EFC67C3C1C767CAD0066383C /* User.swift in Sources */,
 				EF2EC72D1C7A18D60067670D /* TweetCell.swift in Sources */,
 				EF2EC7311C7AC7670067670D /* TweetViewController.swift in Sources */,
+				EF6BE79D1C7E372F0095A358 /* HamburgerViewController.swift in Sources */,
+				EF6BE7BD1C7FBF110095A358 /* MenuViewController.swift in Sources */,
 				EF2EC72F1C7AB8E70067670D /* ComposeTweetViewController.swift in Sources */,
 				EFC67C3E1C767CBA0066383C /* Tweet.swift in Sources */,
+				EFDCA1C41C83D62100BF0393 /* MentionsViewController.swift in Sources */,
 				EF2EC72A1C78DF9B0067670D /* TweetsViewController.swift in Sources */,
 				EF1DD5F91C73FF8600472D1E /* ViewController.swift in Sources */,
 				EF1DD6191C74100500472D1E /* TwitterClient.swift in Sources */,
+				EF3D38B31C80161A0090EBD7 /* ProfileViewController.swift in Sources */,
+				EF6BE7BF1C7FC31C0095A358 /* BlueViewController.swift in Sources */,
 				EF1DD5F71C73FF8600472D1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
